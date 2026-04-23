@@ -131,11 +131,11 @@ export function DBCViewer() {
         )}
       </div>
 
-      <footer className="bg-gray-200 py-4 text-center mt-auto">
+      {/* <footer className="bg-gray-200 py-4 text-center mt-auto">
         <p className="text-gray-600">
           Copyright &copy; 2026 - Andre Oneti.
         </p>
-      </footer>
+      </footer> */}
     </div>
   );
 }
