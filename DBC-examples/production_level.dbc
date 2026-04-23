@@ -1,0 +1,32 @@
+VERSION "Production_Level_DBC"
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+
+BS_:
+
+BU_: ECU_ENGINE ECU_TCU ECU_BCM ECU_CLUSTER
+
+BO_ 512 POWERTRAIN_DATA: 8 ECU_ENGINE
+ SG_ MUX M : 0|4@1+ (1,0) [0|15] "" ECU_TCU,ECU_CLUSTER
+
+ SG_ EngineSpeed m0 : 8|16@1+ (0.125,0) [0|8000] "rpm" ECU_CLUSTER
+ SG_ EngineTorque m0 : 24|16@1+ (1,0) [0|500] "Nm" ECU_TCU
+
+ SG_ OilTemp m1 : 8|8@1+ (1,-40) [-40|215] "C" ECU_CLUSTER
+ SG_ CoolantTemp m1 : 16|8@1+ (1,-40) [-40|215] "C" ECU_CLUSTER
+
+ SG_ Counter : 56|4@1+ (1,0) [0|15] "" ECU_TCU,ECU_CLUSTER
+ SG_ CRC     : 60|4@1+ (1,0) [0|15] "" ECU_TCU,ECU_CLUSTER
+
+BO_ 513 VEHICLE_STATE: 8 ECU_BCM
+ SG_ VehicleSpeed : 0|16@1+ (0.01,0) [0|250] "km/h" ECU_CLUSTER
+ SG_ Ignition     : 16|2@1+ (1,0) [0|3] "" ECU_ENGINE,ECU_TCU
+ SG_ DoorStatus   : 18|4@1+ (1,0) [0|15] "" ECU_CLUSTER
+
+ SG_ Counter : 56|4@1+ (1,0) [0|15] "" ECU_ENGINE
+ SG_ CRC     : 60|4@1+ (1,0) [0|15] "" ECU_ENGINE

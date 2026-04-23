@@ -1,0 +1,27 @@
+VERSION "Truck_DBC_Example"
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+
+BS_:
+
+BU_: ECU_ENGINE ECU_TRANSMISSION ECU_RETARDER ECU_DASH
+
+BO_ 65262 ENGINE_TEMPERATURE: 8 ECU_ENGINE
+ SG_ CoolantTemp : 0|8@1+ (1,-40) [-40|210] "C" ECU_DASH
+ SG_ OilTemp     : 8|8@1+ (1,-40) [-40|210] "C" ECU_DASH
+
+BO_ 61444 ENGINE_SPEED: 8 ECU_ENGINE
+ SG_ EngineSpeed : 24|16@1+ (0.125,0) [0|8031.875] "rpm" ECU_DASH
+
+BO_ 65265 FUEL_INFO: 8 ECU_ENGINE
+ SG_ FuelLevel : 0|8@1+ (0.4,0) [0|100] "%" ECU_DASH
+ SG_ FuelRate  : 8|16@1+ (0.05,0) [0|500] "L/h" ECU_DASH
+
+BO_ 61445 TRANSMISSION: 8 ECU_TRANSMISSION
+ SG_ Gear        : 0|8@1+ (1,0) [0|16] "" ECU_DASH
+ SG_ ClutchState : 8|1@1+ (1,0) [0|1] "" ECU_DASH
